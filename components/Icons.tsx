@@ -176,3 +176,76 @@ export function PawIcon(props: SVGProps<SVGSVGElement>) {
     </S>
   );
 }
+
+export function DocIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <S {...props}>
+      <path d="M6 2.5h8L19 7.5V21.5H6z" />
+      <path d="M14 2.5v5h5" />
+      <path d="M9 12h6M9 15.5h6M9 8.5h2" />
+    </S>
+  );
+}
+
+export function StoreIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <S {...props}>
+      <path d="M4 9.5 5.5 3h13L20 9.5" />
+      <path d="M4 9.5h16v2.2a2.6 2.6 0 0 1-5.2 0 2.7 2.7 0 0 1-5.6 0 2.6 2.6 0 0 1-5.2 0z" />
+      <path d="M5.5 14.5V21h13v-6.5" />
+      <path d="M9.5 21v-4.5h5V21" />
+    </S>
+  );
+}
+
+export function CafeIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <S {...props}>
+      <path d="M5 9.5h11V15a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5z" />
+      <path d="M16 10.5h1.8a2.7 2.7 0 0 1 0 5.4H16" />
+      <path d="M8 3.5c-1 1.2-1 2.3 0 3.5M12 3.5c-1 1.2-1 2.3 0 3.5" />
+    </S>
+  );
+}
+
+export function ParkingIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <S {...props}>
+      <rect x="3" y="3" width="18" height="18" rx="3" />
+      <path d="M9.5 16.5v-9H13a3 3 0 0 1 0 6H9.5" />
+    </S>
+  );
+}
+
+export function BedIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <S {...props}>
+      <path d="M3 18.5v-11M3 14.5h18v4" />
+      <path d="M3 12h18v2.5" />
+      <circle cx="7" cy="9.7" r="1.8" />
+      <path d="M3 12V9.7A1.7 1.7 0 0 1 4.7 8h8.6a4 4 0 0 1 4 4" />
+    </S>
+  );
+}
+
+export function BroomIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <S {...props}>
+      <path d="m14 3 7 7" />
+      <path d="m11.5 8.5 4 4" />
+      <path d="M13 13c-2.5.5-5.5 3-7 8 4.5-.5 8.5-2.5 10-6z" />
+    </S>
+  );
+}
+
+export function PartyOffIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <S {...props}>
+      <path d="m3 3 18 18" />
+      <path d="M12 3v3.5" />
+      <path d="M17.8 5.2 15.5 7.5M19.5 11H16" />
+      <path d="M6.2 5.2l2.3 2.3M4.5 11H8" />
+      <path d="M9 21h6l-1.2-4.2a1.9 1.9 0 0 0-3.6 0z" />
+    </S>
+  );
+}

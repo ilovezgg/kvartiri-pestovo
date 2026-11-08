@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local work files
+dev.log
+shots/
+_backup/
+ref-index.html
+seo-guide.md
+glavnaya-zadacha.txt
