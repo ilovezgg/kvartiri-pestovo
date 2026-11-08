@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FAQ, FLATS, PHONE, PHONE_HREF } from "@/lib/data";
 import { SITE_URL } from "@/lib/site";
+import V3Nav from "@/components/V3Nav";
 import "./home.css";
 
 export const metadata: Metadata = {
@@ -101,6 +102,7 @@ export default function HomePage() {
             <a href="#contacts">Контакты</a>
           </nav>
           <a className="v3-nav-phone" href={PHONE_HREF}>{PHONE}</a>
+          <V3Nav />
         </div>
       </header>
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ORG, PHONE, PHONE_HREF } from "@/lib/data";
+import V3Nav from "@/components/V3Nav";
 import "../home.css";
 
 export const metadata: Metadata = {
@@ -50,6 +51,7 @@ export default function OrgsPage() {
             <Link href="/#contacts">Контакты</Link>
           </nav>
           <a className="v3-nav-phone" href={PHONE_HREF}>{PHONE}</a>
+          <V3Nav base="/" />
         </div>
       </header>
 

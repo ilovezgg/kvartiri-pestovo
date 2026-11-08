@@ -301,3 +301,43 @@
   .v3-faq-item p { font-size: 13.5px; }
   .v3-fp-desc { font-size: 15px; }
 }
+
+/* ===== бургер-меню и доработка мобилки (08.11) ===== */
+.v3-burger { display: none; }
+@media (max-width: 850px) {
+  .v3-burger {
+    display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+    width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 12px;
+    background: var(--paper); cursor: pointer; flex: none; padding: 0;
+  }
+  .v3-burger span { display: block; width: 18px; height: 2px; border-radius: 2px; background: var(--green); transition: .2s ease; }
+  .v3-burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .v3-burger.is-open span:nth-child(2) { opacity: 0; }
+  .v3-burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .v3-header { position: sticky; }
+  .v3-mobmenu {
+    position: absolute; top: 100%; left: 0; right: 0; z-index: 30;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+    box-shadow: 0 24px 40px rgba(40,48,38,.12);
+    padding: 10px 20px 20px;
+  }
+  .v3-mobmenu-links { display: flex; flex-direction: column; }
+  .v3-mobmenu-links a {
+    padding: 15px 4px; font-size: 17px; font-weight: 600; color: var(--ink);
+    border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center;
+  }
+  .v3-mobmenu-links a::after { content: "→"; color: var(--green2); font-weight: 400; }
+  .v3-mobmenu-links a:last-child { border-bottom: 0; }
+  .v3-mobmenu-links a:active { color: var(--green); }
+  .v3-mobmenu-call { width: 100%; margin-top: 14px; font-size: 15px; }
+
+  /* мобилка: воздух и удобство */
+  .v3-mobile-call { bottom: calc(10px + env(safe-area-inset-bottom)); }
+  .v3-hero-actions .v3-button { flex: 1 1 auto; }
+  .v3-trust-item { align-items: flex-start; }
+  .v3-flat-bottom { flex-wrap: wrap; }
+}
+@media (max-width: 600px) {
+  .v3-mobmenu-links a { font-size: 16px; padding: 14px 2px; }
+}

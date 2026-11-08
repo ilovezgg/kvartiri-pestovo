@@ -12,6 +12,7 @@ import {
 } from "@/lib/data";
 import { SITE_URL } from "@/lib/site";
 import V3Gallery from "@/components/V3Gallery";
+import V3Nav from "@/components/V3Nav";
 import "../../home.css";
 
 export function generateStaticParams() {
@@ -87,6 +88,7 @@ export default async function FlatPage({
             <Link href="/#contacts">Контакты</Link>
           </nav>
           <a className="v3-nav-phone" href={PHONE_HREF}>{PHONE}</a>
+          <V3Nav base="/" />
         </div>
       </header>
 
