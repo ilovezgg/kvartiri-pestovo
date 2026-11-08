@@ -1,3 +1,3 @@
-/* TODO(владелец): указать реальный домен перед публикацией и в Search Console / Яндекс Вебмастере */
+/* TODO(владелец): при покупке своего домена заменить на него и здесь, и в Vercel → Domains */
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://kvartiry-pestovo.ru";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://kvartiri-pestovo.vercel.app";
