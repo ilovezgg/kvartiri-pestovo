@@ -13,6 +13,7 @@ import {
 import { SITE_URL } from "@/lib/site";
 import V3Gallery from "@/components/V3Gallery";
 import V3Nav from "@/components/V3Nav";
+import { Reveal } from "@/components/Motion";
 import "../../home.css";
 
 export function generateStaticParams() {
@@ -97,103 +98,115 @@ export default async function FlatPage({
           <nav className="v3-fp-back" aria-label="Назад">
             <Link href="/#apartments">← Все квартиры</Link>
           </nav>
-          <div className="v3-fp-head">
-            <div>
-              <div className="v3-eyebrow">{flat.tag} · {flat.addr}</div>
-              <h1 className="v3-h1 v3-fp-title">{flat.name.split(" на ")[0]}</h1>
-              <p className="v3-fp-sub">{flat.addr}, Пестово</p>
-            </div>
-            <div className="v3-fp-cta">
-              <div className="v3-fp-price">
-                {flat.price}
-                <small>за сутки</small>
+          <Reveal hero>
+            <div className="v3-fp-head">
+              <div>
+                <div className="v3-eyebrow">{flat.tag} · {flat.addr}</div>
+                <h1 className="v3-h1 v3-fp-title">{flat.name.split(" на ")[0]}</h1>
+                <p className="v3-fp-sub">{flat.addr}, Пестово</p>
               </div>
-              <a className="v3-button" href={PHONE_HREF}>Позвонить хозяйке ↗</a>
+              <div className="v3-fp-cta">
+                <div className="v3-fp-price">
+                  {flat.price}
+                  <small>за сутки</small>
+                </div>
+                <a className="v3-button" href={PHONE_HREF}>Позвонить хозяйке ↗</a>
+              </div>
             </div>
-          </div>
+          </Reveal>
 
-          <V3Gallery photos={flat.photos} title={flat.name} />
+          <Reveal hero delay={0.12} y={22}>
+            <V3Gallery photos={flat.photos} title={flat.name} />
+          </Reveal>
         </div>
       </section>
 
       <section className="v3-fp-body v3-section">
         <div className="v3-wrap v3-fp-grid">
-          <div>
-            <h2 className="v3-h2">О квартире</h2>
-            <p className="v3-fp-desc">{flat.desc}</p>
-            <div className="v3-fp-specs">
-              {flat.specs.map((s) => (
-                <span key={s}>{s}</span>
-              ))}
-            </div>
+          <Reveal>
+            <div>
+              <h2 className="v3-h2">О квартире</h2>
+              <p className="v3-fp-desc">{flat.desc}</p>
+              <div className="v3-fp-specs">
+                {flat.specs.map((s) => (
+                  <span key={s}>{s}</span>
+                ))}
+              </div>
 
-            <h2 className="v3-h2 v3-fp-h2">Что рядом с домом</h2>
-            <div className="v3-amenities v3-fp-nearby">
-              {NEARBY.map((n) => (
-                <div key={n.b} className="v3-amenity">
-                  <i>✓</i>
-                  <span>
-                    <b>{n.b}</b>
-                    {n.rest}
-                  </span>
+              <h2 className="v3-h2 v3-fp-h2">Что рядом с домом</h2>
+              <div className="v3-amenities v3-fp-nearby">
+                {NEARBY.map((n) => (
+                  <div key={n.b} className="v3-amenity">
+                    <i>✓</i>
+                    <span>
+                      <b>{n.b}</b>
+                      {n.rest}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.12}>
+            <div className="v3-rules-card v3-fp-rules">
+              <h3>Условия проживания</h3>
+              {STAY.map((s) => (
+                <div key={s.b} className="v3-rule">
+                  <span>{s.b}</span>
+                  <b>{s.rest.replace(" — ", "")}</b>
                 </div>
               ))}
-            </div>
-          </div>
-
-          <div className="v3-rules-card v3-fp-rules">
-            <h3>Условия проживания</h3>
-            {STAY.map((s) => (
-              <div key={s.b} className="v3-rule">
-                <span>{s.b}</span>
-                <b>{s.rest.replace(" — ", "")}</b>
+              <div className="v3-rule">
+                <span>Связь с хозяйкой</span>
+                <b>Ежедневно, {HOURS.replace("ежедневно ", "")}</b>
               </div>
-            ))}
-            <div className="v3-rule">
-              <span>Связь с хозяйкой</span>
-              <b>Ежедневно, {HOURS.replace("ежедневно ", "")}</b>
+              <a className="v3-button v3-fp-rules-btn" href={PHONE_HREF}>
+                Уточнить даты · {PHONE}
+              </a>
             </div>
-            <a className="v3-button v3-fp-rules-btn" href={PHONE_HREF}>
-              Уточнить даты · {PHONE}
-            </a>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="v3-section v3-fp-others">
         <div className="v3-wrap">
-          <div className="v3-section-head">
-            <div>
-              <div className="v3-eyebrow">Есть и другие варианты</div>
-              <h2 className="v3-h2">Другие квартиры</h2>
+          <Reveal>
+            <div className="v3-section-head">
+              <div>
+                <div className="v3-eyebrow">Есть и другие варианты</div>
+                <h2 className="v3-h2">Другие квартиры</h2>
+              </div>
+              <p className="v3-section-intro">
+                Все квартиры — на улице Чапаева, с одинаковым набором техники и
+                условий проживания.
+              </p>
             </div>
-            <p className="v3-section-intro">
-              Все квартиры — на улице Чапаева, с одинаковым набором техники и
-              условий проживания.
-            </p>
-          </div>
+          </Reveal>
           <div className="v3-cards v3-cards--3">
-            {others.map((f) => (
-              <article key={f.slug} className="v3-flat-card">
-                <Link className="v3-flat-image v3-flat-image--link" href={`/flats/${f.slug}`}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={f.photo} alt={`${f.name} — квартира посуточно в Пестово`} />
-                  <span className="v3-flat-tag">{f.tag}</span>
-                </Link>
-                <div className="v3-flat-body">
-                  <div className="v3-flat-meta">{f.addr}</div>
-                  <h3 className="v3-flat-title">{f.name.split(" на ")[0]}</h3>
-                  <div className="v3-flat-bottom">
-                    <div className="v3-flat-price">
-                      {f.price}
-                      <small>за сутки</small>
+            {others.map((f, i) => (
+              <Reveal key={f.slug} delay={i * 0.08} className="v3-reveal-full">
+                <article className="v3-flat-card">
+                  <Link className="v3-flat-image v3-flat-image--link" href={`/flats/${f.slug}`}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={f.photo} alt={`${f.name} — квартира посуточно в Пестово`} />
+                    <span className="v3-flat-tag">{f.tag}</span>
+                  </Link>
+                  <div className="v3-flat-body">
+                    <div className="v3-flat-meta">{f.addr}</div>
+                    <h3 className="v3-flat-title">{f.name.split(" на ")[0]}</h3>
+                    <div className="v3-flat-bottom">
+                      <div className="v3-flat-price">
+                        {f.price}
+                        <small>за сутки</small>
+                      </div>
+                      <Link className="v3-text-link" href={`/flats/${f.slug}`}>
+                        Смотреть ↗
+                      </Link>
                     </div>
-                    <Link className="v3-text-link" href={`/flats/${f.slug}`}>
-                      Смотреть ↗
-                    </Link>
                   </div>
-                </div>
-              </article>
+                </article>
+              </Reveal>
             ))}
           </div>
         </div>

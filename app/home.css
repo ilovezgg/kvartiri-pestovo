@@ -341,3 +341,17 @@
 @media (max-width: 600px) {
   .v3-mobmenu-links a { font-size: 16px; padding: 14px 2px; }
 }
+
+/* ===== поддержка анимационных обёрток Reveal (12.11) ===== */
+.v3-reveal-full, .v3-reveal-full > .v3-flat-card { height: 100%; }
+.v3-trust-grid > div:first-child .v3-trust-item { padding-left: 0; }
+.v3-trust-grid > div:last-child .v3-trust-item { border-right: 0; }
+.v3-trust-grid > div .v3-trust-item { border-right: 1px solid var(--line); height: 100%; }
+.v3-trust-grid > div:last-child .v3-trust-item { border-right: 0; }
+.v3-faq-list .v3-faq-item { height: 100%; }
+@media (max-width: 850px) {
+  .v3-trust-grid > div:nth-child(2) .v3-trust-item { border-right: 0; }
+  .v3-trust-grid > div:nth-child(-n+2) .v3-trust-item { border-bottom: 1px solid var(--line); }
+}
+
+.v3-reveal-full > .v3-org-card, .v3-reveal-full > .v3-org-step { height: 100%; }

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 export default function V3Gallery({
   photos,
@@ -11,17 +12,28 @@ export default function V3Gallery({
   title: string;
 }) {
   const [active, setActive] = useState(0);
+  const reduced = useReducedMotion();
 
   return (
     <div className="v3-gal">
       <div className="v3-gal-main">
-        <Image
-          src={photos[active]}
-          alt={`${title} — фото ${active + 1}`}
-          fill
-          priority
-          sizes="(max-width: 850px) 100vw, 1120px"
-        />
+        <AnimatePresence initial={false}>
+          <motion.div
+            key={active}
+            style={{ position: "absolute", inset: 0 }}
+            initial={reduced ? false : { opacity: 0, scale: 1.02 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+          >
+            <Image
+              src={photos[active]}
+              alt={`${title} — фото ${active + 1}`}
+              fill
+              priority
+              sizes="(max-width: 850px) 100vw, 1120px"
+            />
+          </motion.div>
+        </AnimatePresence>
         <span className="v3-gal-count">
           {active + 1} / {photos.length}
         </span>
