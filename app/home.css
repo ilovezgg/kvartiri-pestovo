@@ -355,3 +355,7 @@
 }
 
 .v3-reveal-full > .v3-org-card, .v3-reveal-full > .v3-org-step { height: 100%; }
+
+.v3-org-okved { margin-top: 16px; font-size: 13px; }
+.v3-org-okved summary { cursor: pointer; color: var(--green2); font-weight: 700; }
+.v3-org-okved p { color: var(--muted); font-size: 12.5px; margin: 10px 0 0; word-break: break-word; }

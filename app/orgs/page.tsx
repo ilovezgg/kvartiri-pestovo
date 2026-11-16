@@ -17,7 +17,10 @@ const orgJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Квартиры от хозяйки — посуточно в Пестово",
+  legalName: "Индивидуальный предприниматель Изотова Яна Александровна",
   url: SITE_URL,
+  email: "yana.izotova.77@mail.ru",
+  taxID: "531300389015",
   telephone: "+79217058876",
   contactPoint: {
     "@type": "ContactPoint",
@@ -156,13 +159,21 @@ export default function OrgsPage() {
               {details.map((d) => (
                 <div key={d.k} className="v3-rule">
                   <span>{d.k}</span>
-                  <b>{d.v}</b>
+                  {d.k === "Email" ? (
+                    <b><a href={`mailto:${d.v}`}>{d.v}</a></b>
+                  ) : (
+                    <b>{d.v}</b>
+                  )}
                 </div>
               ))}
               <div className="v3-rule">
-                <span>Остальные реквизиты</span>
-                <b>по запросу по телефону</b>
+                <span>ОКВЭД (основной)</span>
+                <b>{ORG.okvedMain}</b>
               </div>
+              <details className="v3-org-okved">
+                <summary>Все коды ОКВЭД ({ORG.okvedAll.length})</summary>
+                <p>{ORG.okvedAll.join(" · ")}</p>
+              </details>
             </div>
           </Reveal>
         </div>
