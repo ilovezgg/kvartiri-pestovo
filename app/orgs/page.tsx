@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ORG, PHONE, PHONE_HREF } from "@/lib/data";
+import { SITE_URL } from "@/lib/site";
 import V3Nav from "@/components/V3Nav";
 import { Reveal } from "@/components/Motion";
 import "../home.css";
@@ -10,6 +11,21 @@ export const metadata: Metadata = {
   description:
     "Размещение командировочных в Пестово: квартиры посуточно от 2 000 ₽/сутки, кассовые чеки, оплата по расчётному счёту, отчётные документы для бухгалтерии. Работаем с организациями и ИП.",
   alternates: { canonical: "/orgs" },
+};
+
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Квартиры от хозяйки — посуточно в Пестово",
+  url: SITE_URL,
+  telephone: "+79217058876",
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+79217058876",
+    contactType: "sales",
+    areaServed: "RU",
+    hoursAvailable: "Mo-Su 08:00-22:00",
+  },
 };
 
 const STEPS = [
@@ -35,6 +51,10 @@ export default function OrgsPage() {
 
   return (
     <main className="v3">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+      />
       <header className="v3-header">
         <div className="v3-wrap v3-nav">
           <Link className="v3-brand" href="/">

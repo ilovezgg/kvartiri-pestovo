@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ru_RU",
     url: "/",
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Квартиры посуточно в Пестово от хозяйки" }],
   },
 };
 
