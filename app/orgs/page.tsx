@@ -190,7 +190,7 @@ export default function OrgsPage() {
         <div className="v3-wrap v3-footer-inner">
           <span><b>Квартиры от хозяйки</b> · Пестово · ул. Чапаева</span>
           <span>Без посредников · Без комиссии · Прямое бронирование</span>
-          <a href={PHONE_HREF}>{PHONE}</a>
+          <span><Link href="/privacy">Политика конфиденциальности</Link> · <a href={PHONE_HREF}>{PHONE}</a></span>
         </div>
       </footer>
       <div className="v3-mobile-call">
