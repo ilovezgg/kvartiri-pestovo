@@ -42,7 +42,7 @@ export default function Hero() {
             <div className="hero-photo-frame">
               <div className="hero-ph">
                 <Image
-                  src="/images/chapaeva-14-2room/chapaeva-01.jpg"
+                  src="/images/chapaeva-14-2room/chapaeva-01.webp"
                   alt="Квартира на ул. Чапаева, 14"
                   fill
                   priority

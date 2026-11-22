@@ -62,7 +62,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
           })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=114509384', 'ym');
 
-          ym(114509384, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});`}
+          ym(114509384, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+
+          // Цель «Звонок»: клик по любой ссылке tel:
+          document.addEventListener('click', function (e) {
+            var a = e.target && e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
+            if (a) { ym(114509384, 'reachGoal', 'call_click'); }
+          });`}
         </Script>
         <noscript>
           <div><img src="https://mc.yandex.ru/watch/114509384" style={{ position: "absolute", left: -9999 }} alt="" /></div>

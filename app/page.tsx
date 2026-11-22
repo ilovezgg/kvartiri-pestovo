@@ -57,6 +57,8 @@ const jsonLd = {
     "Одно-, двух- и трёхкомнатные квартиры посуточно в Пестово напрямую от хозяйки. Без посредников и комиссии.",
   url: SITE_URL,
   telephone: "+79217058876",
+  email: "yana.izotova.77@mail.ru",
+  image: `${SITE_URL}/og.jpg`,
   priceRange: "от 2000 ₽/сутки",
   address: {
     "@type": "PostalAddress",
@@ -152,7 +154,7 @@ export default function HomePage() {
             <div className="v3-hero-visual">
               <div className="v3-hero-photo">
                 <Image
-                  src="/images/chapaeva-14-2room/chapaeva-01.jpg"
+                  src="/images/chapaeva-14-2room/chapaeva-01.webp"
                   alt="Трёхкомнатная квартира посуточно на улице Чапаева, 14 в Пестово"
                   fill
                   priority
