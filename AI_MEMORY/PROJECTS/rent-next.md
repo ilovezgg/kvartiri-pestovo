@@ -135,3 +135,11 @@
 - ВЛАДЕЛЕЦ: в Вебмастере нажать «Подтвердить» + добавить sitemap https://kvartiri-pestovo.ru/sitemap.xml.
 - КРИТИЧЕСКАЯ ЛОВУШКА ДЕПЛОЯ: `rm -rf out` УБИВАЕТ git-репозиторий gh-pages (out/.git)! После пересборки git add в out/ молча работает с РОДИТЕЛЬСКИМ репозиторием rent-next (add -A стейджит всё подряд, push gh-pages падает «refspec does not match»). ПРАВИЛЬНЫЙ ПОРЯДОК после rm -rf out && build: `cd out && git init -q -b gh-pages && git add -A && commit && push -f`. Проверять `git log --oneline -1` и `git status -sb` перед/после.
 - Порядок пересборки: taskkill dev → rm -rf .next out → cp next.config.ts бэкап → export-конфиг → build → проверить файлы → cd out → git init -b gh-pages → .nojekyll + CNAME (CNAME переживает пересборку, лежит в out) → commit+push → cd .. → вернуть конфиг из бэкапа → поднять dev.
+
+## 2026-11-22 (ночь) — SEO-база: WebP + цель «звонок» + продвижение
+- Все 38 фото конвертированы в WebP (scripts/webp.py, PIL: max 1600px, q82): 7.1→4.3 МБ. Главные фото карточек: ~620 КБ суммарно (было ~1.9 МБ). jpg удалены из public/images (в истории git есть). og.jpg НЕ трогаем (соцсети). Пути: sed .jpg→.webp в lib/data.ts (паттерн + 5 photo-полей), app/page.tsx, components/Hero.tsx.
+- Цель Метрики: в app/layout.tsx обработчик кликов по a[href^="tel:"] → ym(114509384,'reachGoal','call_click'). ВЛАДЕЛЬЦУ: создать в Метрике цель типа «JavaScript-событие», идентификатор call_click (иначе данные не пишутся).
+- JSON-LD главной: добавлены email (yana.izotova.77@mail.ru) и image. LodgingBusiness-разметка УЖЕ была.
+- Провайдер блокирует mc.yandex.ru (счётчик) и googleapis.com (PSI недоступен) — для владельца счётчик не грузится, для остальных посетителей ок. Проверку счётчика делать с телефона на LTE.
+- План продвижения (согласовано): владелец — Яндекс Бизнес (1 карточка, категория «Жильё посуточно», НЕ плодить дубли), 2ГИС, отзывы (QR на холодильник, текст без «5 звёзд за скидку» — бан), Авито (объявление на каждую квартиру), группа ВК, посты в местных пабликах. Контент: страница-гид + 2 статьи (где остановиться / командировочные). Google Search Console — добавить сайт (файл/meta/DNS) когда у владельца будет минутка.
+- gh-pages деплой после rm -rf out: ВСЕГДА git init -b gh-pages заново (см. ловушку выше).
