@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -44,6 +45,8 @@ export default async function FlatPage({
   const flat = flatBySlug(slug);
   if (!flat) notFound();
 
+  const title = flat.name.split(" на ")[0];
+  const rooms = parseInt(flat.tag, 10);
   const others = FLATS.filter((f) => f.slug !== flat.slug);
 
   const jsonLd = {
@@ -53,16 +56,13 @@ export default async function FlatPage({
     description: flat.desc,
     url: `${SITE_URL}/flats/${flat.slug}`,
     image: `${SITE_URL}${flat.photo}`,
+    ...(rooms ? { numberOfRooms: rooms } : {}),
     address: {
       "@type": "PostalAddress",
       streetAddress: flat.addr,
       addressLocality: "Пестово",
       addressRegion: "Новгородская область",
       addressCountry: "RU",
-    },
-    containsPlace: {
-      "@type": "Accommodation",
-      occupancy: { "@type": "QuantitativeValue", value: Number(flat.tag[0]) || 1, unitText: "комнаты" },
     },
   };
 
@@ -98,26 +98,41 @@ export default async function FlatPage({
           <nav className="v3-fp-back" aria-label="Назад">
             <Link href="/#apartments">← Все квартиры</Link>
           </nav>
-          <Reveal hero>
-            <div className="v3-fp-head">
-              <div>
-                <div className="v3-eyebrow">{flat.tag} · {flat.addr}</div>
-                <h1 className="v3-h1 v3-fp-title">{flat.name.split(" на ")[0]}</h1>
+
+          <div className="v3-fp-top">
+            <Reveal hero delay={0.1} y={22} className="v3-fp-media">
+              <V3Gallery photos={flat.photos} title={flat.name} />
+            </Reveal>
+
+            <Reveal hero className="v3-fp-side">
+              <div className="v3-fp-card">
+                <div className="v3-eyebrow">{flat.tag}</div>
+                <h1 className="v3-h1 v3-fp-title">{title}</h1>
                 <p className="v3-fp-sub">{flat.addr}, Пестово</p>
-              </div>
-              <div className="v3-fp-cta">
+
                 <div className="v3-fp-price">
                   {flat.price}
                   <small>за сутки</small>
                 </div>
-                <a className="v3-button" href={PHONE_HREF}>Позвонить хозяйке ↗</a>
-              </div>
-            </div>
-          </Reveal>
+                <a className="v3-button v3-fp-call" href={PHONE_HREF}>
+                  Позвонить хозяйке · {PHONE}
+                </a>
 
-          <Reveal hero delay={0.12} y={22}>
-            <V3Gallery photos={flat.photos} title={flat.name} />
-          </Reveal>
+                <div className="v3-fp-terms">
+                  {STAY.map((s) => (
+                    <div key={s.b} className="v3-rule">
+                      <span>{s.b}</span>
+                      <b>{s.rest.replace(" — ", "")}</b>
+                    </div>
+                  ))}
+                  <div className="v3-rule">
+                    <span>Связь с хозяйкой</span>
+                    <b>Ежедневно, {HOURS.replace("ежедневно ", "")}</b>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -132,8 +147,12 @@ export default async function FlatPage({
                   <span key={s}>{s}</span>
                 ))}
               </div>
+            </div>
+          </Reveal>
 
-              <h2 className="v3-h2 v3-fp-h2">Что рядом с домом</h2>
+          <Reveal delay={0.12}>
+            <div>
+              <h2 className="v3-h2">Что рядом с домом</h2>
               <div className="v3-amenities v3-fp-nearby">
                 {NEARBY.map((n) => (
                   <div key={n.b} className="v3-amenity">
@@ -145,25 +164,6 @@ export default async function FlatPage({
                   </div>
                 ))}
               </div>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.12}>
-            <div className="v3-rules-card v3-fp-rules">
-              <h3>Условия проживания</h3>
-              {STAY.map((s) => (
-                <div key={s.b} className="v3-rule">
-                  <span>{s.b}</span>
-                  <b>{s.rest.replace(" — ", "")}</b>
-                </div>
-              ))}
-              <div className="v3-rule">
-                <span>Связь с хозяйкой</span>
-                <b>Ежедневно, {HOURS.replace("ежедневно ", "")}</b>
-              </div>
-              <a className="v3-button v3-fp-rules-btn" href={PHONE_HREF}>
-                Уточнить даты · {PHONE}
-              </a>
             </div>
           </Reveal>
         </div>
@@ -184,30 +184,46 @@ export default async function FlatPage({
             </div>
           </Reveal>
           <div className="v3-cards v3-cards--3">
-            {others.map((f, i) => (
-              <Reveal key={f.slug} delay={i * 0.08} className="v3-reveal-full">
-                <article className="v3-flat-card">
-                  <Link className="v3-flat-image v3-flat-image--link" href={`/flats/${f.slug}`}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={f.photo} alt={`${f.name} — квартира посуточно в Пестово`} />
-                    <span className="v3-flat-tag">{f.tag}</span>
-                  </Link>
-                  <div className="v3-flat-body">
-                    <div className="v3-flat-meta">{f.addr}</div>
-                    <h3 className="v3-flat-title">{f.name.split(" на ")[0]}</h3>
-                    <div className="v3-flat-bottom">
-                      <div className="v3-flat-price">
-                        {f.price}
-                        <small>за сутки</small>
+            {others.map((f, i) => {
+              const t = f.name.split(" на ")[0];
+              return (
+                <Reveal key={f.slug} delay={i * 0.08} className="v3-reveal-full">
+                  <article className="v3-flat-card">
+                    <Link
+                      className="v3-flat-image v3-flat-image--link"
+                      href={`/flats/${f.slug}`}
+                      tabIndex={-1}
+                      aria-hidden="true"
+                    >
+                      <Image
+                        src={f.photo!}
+                        alt=""
+                        fill
+                        sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 370px"
+                      />
+                      <span className="v3-flat-tag">{f.tag}</span>
+                    </Link>
+                    <div className="v3-flat-body">
+                      <div className="v3-flat-meta">{f.addr}</div>
+                      <h3 className="v3-flat-title">{t}</h3>
+                      <div className="v3-flat-bottom">
+                        <div className="v3-flat-price">
+                          {f.price}
+                          <small>за сутки</small>
+                        </div>
+                        <Link
+                          className="v3-text-link"
+                          href={`/flats/${f.slug}`}
+                          aria-label={`Смотреть: ${t}`}
+                        >
+                          Смотреть ↗
+                        </Link>
                       </div>
-                      <Link className="v3-text-link" href={`/flats/${f.slug}`}>
-                        Смотреть ↗
-                      </Link>
                     </div>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>

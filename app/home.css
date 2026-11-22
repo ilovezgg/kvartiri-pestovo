@@ -400,3 +400,74 @@
 
 /* пять+ квартир: «другие квартиры» в одну строку на широком экране */
 .v3-cards--3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+
+
+/* =====================================================================
+   v4: страница квартиры + общие правки. Всё ниже перекрывает правила выше.
+   ===================================================================== */
+
+/* 1. Шрифты. Onest и Prata подключены в layout.tsx, но .v3 их не использовал
+      (Inter и Georgia). Не нравится — удалить блок 1 целиком. */
+.v3 {
+  --serif: var(--font-prata), Georgia, "Times New Roman", serif;
+  --sans: var(--font-onest), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --muted: #62675e; /* было #777b70: ~4:1, стало ~5:1 */
+}
+.v3-h1 { letter-spacing: -.02em; }
+.v3-h2, .v3-flat-title { letter-spacing: -.015em; }
+.v3-h1 em { font-style: normal; } /* у Prata нет курсива, браузер рисовал его криво */
+.v3-hero-note { color: var(--muted); }
+
+/* 2. Фокус для кнопок и summary (для ссылок он уже есть в globals.css) */
+.v3 button:focus-visible, .v3 summary:focus-visible { outline: 2px solid var(--green2); outline-offset: 3px; }
+
+/* 3. Галерея: светлая подложка, фото 4:3, миниатюры лентой */
+.v3-gal { margin-top: 0; }
+.v3-gal-main { height: auto; aspect-ratio: 4 / 3; background: var(--sand); }
+.v3-gal-main img { background: var(--sand); }
+.v3-gal-thumbs { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x proximity; padding-bottom: 6px; scrollbar-width: thin; }
+.v3-gal-thumb { flex: 0 0 96px; height: 68px; scroll-snap-align: start; }
+.v3-gal-thumb img { object-fit: cover; background: none; }
+
+/* 4. Страница квартиры: фото слева, карточка с ценой и условиями справа */
+.v3-fp-hero { padding: 36px 0 0; }
+.v3-fp-back { margin-bottom: 20px; }
+.v3-fp-top { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 40px; align-items: stretch; }
+.v3-fp-media, .v3-fp-side { min-width: 0; }
+.v3-fp-card {
+  height: 100%; display: flex; flex-direction: column;
+  background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 30px; box-shadow: var(--shadow);
+}
+.v3-fp-title { font-size: clamp(30px, 3.2vw, 40px); margin: 14px 0 8px; }
+.v3-fp-sub { margin: 0; }
+.v3-fp-price { margin-top: 22px; font-size: 38px; }
+.v3-fp-call { width: 100%; margin-top: 16px; white-space: normal; text-align: center; }
+.v3-fp-terms { margin-top: 24px; border-top: 1px solid var(--line); }
+.v3-fp-terms .v3-rule { flex-wrap: wrap; row-gap: 2px; }
+.v3-fp-terms .v3-rule b { margin-left: auto; }
+
+/* 5. Ниже: «О квартире» и «Что рядом» в две колонки */
+.v3-fp-nearby { grid-template-columns: 1fr; gap: 16px; margin-top: 26px; }
+
+/* 6. Другие квартиры: кликабельна вся карточка */
+.v3-flat-card { position: relative; }
+.v3-flat-card .v3-text-link::after { content: ""; position: absolute; inset: 0; }
+
+/* 7. Адаптив */
+@media (max-width: 999px) {
+  .v3-fp-top { grid-template-columns: 1fr; gap: 24px; }
+  .v3-fp-card { height: auto; padding: 24px; }
+}
+@media (max-width: 600px) {
+  .v3-fp-hero { padding-top: 24px; }
+  .v3-fp-card { padding: 22px 20px; }
+  .v3-fp-title { font-size: 32px; }
+  .v3-fp-price { font-size: 32px; }
+}
+
+/* 8. Без анимаций, если так настроена система */
+@media (prefers-reduced-motion: reduce) {
+  .v3 *, .v3 *::before, .v3 *::after { transition: none !important; animation: none !important; }
+  .v3-button:hover, .v3-flat-card:hover { transform: none; }
+}
