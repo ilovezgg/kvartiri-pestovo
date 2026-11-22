@@ -123,3 +123,9 @@
 - Старая ссылка ilovezgg.github.io/kvartiri-pestovo/ теперь редиректит на домен (из-за CNAME) — это нормально.
 - План Б на случай проблем: Яндекс Cloud Object Storage (0 ₽, не заблокирован провайдером).
 - Текущий прод: https://kvartiri-pestovo.ru (GitHub Pages, ветка gh-pages = собранная статика из out, деплой ручной). Vercel-проект kvartiri-pestovo.vercel.app пока существует, но провайдер владельца его блокирует.
+
+## 2026-11-22 (ночь) — HTTPS готов ✅
+- Сертификат подвис на legacy-Pages (>90 мин при полностью пропагированном DNS). ЛЕЧЕНИЕ: убрать CNAME из gh-pages → push (подождать, пока GitHub сбросит домен, html_url вернётся на github.io) → вернуть CNAME → push. Сертификат (Let's Encrypt) выпустился за ~10 мин после этого.
+- Включён https_enforced (http → 301 на https). Проверено: https 200, http 301, cert CN=kvartiri-pestovo.ru до 20.02.2027.
+- Верный адрес прод: https://kvartiri-pestovo.ru
+- Версель до сих пор подключён к репозиторию и шлёт «preview deployment failed» при пушах в gh-pages — ВЛАДЕЛЕЦ должен отключить/удалить проект kvartiri-pestovo на vercel.com (Settings → Git → Disconnect или Delete Project). На сайт не влияет.
