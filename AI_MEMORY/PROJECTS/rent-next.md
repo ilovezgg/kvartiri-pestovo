@@ -109,3 +109,6 @@
 - Проверил скриншотом: работает. Владельцу: проверить доступность с его провайдера + телефона.
 - main НЕ трогал (Vercel-конфиг cacheComponents/partialPrefetching — с export несовместимы, dev тоже). Для постоянного переезда: решить Vercel vs Pages, тогда переключить конфиг.
 - План владельца: домен .ru у reg.ru (~169 ₽ первый год, продление ~1200 ₽/год) + GitHub Pages (0 ₽). DNS: 4×A на GitHub + CNAME www.
+- ПОЧИНКА ФОТО на Pages: next/image с basePath отдаёт src от корня — фото 404. Решение: image-loader.ts (в main, через images.loader/loaderFile) + env NEXT_PUBLIC_BASE_PATH, при сборке под Pages выставляется "/kvartiri-pestovo", в Vercel-конфиге loader не подключён (нужен будет при переезде).
+- ШРИФТЫ: провайдер блокирует fonts.googleapis.com — next/font/google НЕ собирает. Перевёл на next/font/local: файлы в public/fonts (Onest — переменный wght 100-900, файлы onest-cyrillic.woff2 + onest-latin-v.woff2; prata-400 + prata-latin; caveat-500 + caveat-latin). Скачаны с fonts.gstatic.com (он доступен). main = 901f84f.
+- ЛОВУШКА: git checkout -- next.config.ts откатывает и robots/sitemap force-static — при сборке под Pages проверять оба.
