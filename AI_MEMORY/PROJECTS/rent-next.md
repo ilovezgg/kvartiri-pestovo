@@ -129,3 +129,9 @@
 - Включён https_enforced (http → 301 на https). Проверено: https 200, http 301, cert CN=kvartiri-pestovo.ru до 20.02.2027.
 - Верный адрес прод: https://kvartiri-pestovo.ru
 - Версель до сих пор подключён к репозиторию и шлёт «preview deployment failed» при пушах в gh-pages — ВЛАДЕЛЕЦ должен отключить/удалить проект kvartiri-pestovo на vercel.com (Settings → Git → Disconnect или Delete Project). На сайт не влияет.
+
+## 2026-11-22 (ночь) — Яндекс подключён
+- Метрика ID **114509384** встроена через next/script (app/layout.tsx), webvisor+clickmap включены. Файл подтверждения Вебмастера public/yandex_4ed334721d0389a8.html. Коммит f7bfd36 (main) + gh-pages. Проверено на живом сайте.
+- ВЛАДЕЛЕЦ: в Вебмастере нажать «Подтвердить» + добавить sitemap https://kvartiri-pestovo.ru/sitemap.xml.
+- КРИТИЧЕСКАЯ ЛОВУШКА ДЕПЛОЯ: `rm -rf out` УБИВАЕТ git-репозиторий gh-pages (out/.git)! После пересборки git add в out/ молча работает с РОДИТЕЛЬСКИМ репозиторием rent-next (add -A стейджит всё подряд, push gh-pages падает «refspec does not match»). ПРАВИЛЬНЫЙ ПОРЯДОК после rm -rf out && build: `cd out && git init -q -b gh-pages && git add -A && commit && push -f`. Проверять `git log --oneline -1` и `git status -sb` перед/после.
+- Порядок пересборки: taskkill dev → rm -rf .next out → cp next.config.ts бэкап → export-конфиг → build → проверить файлы → cd out → git init -b gh-pages → .nojekyll + CNAME (CNAME переживает пересборку, лежит в out) → commit+push → cd .. → вернуть конфиг из бэкапа → поднять dev.
