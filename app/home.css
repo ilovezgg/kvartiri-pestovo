@@ -446,6 +446,10 @@
 .v3-fp-terms { margin-top: 24px; border-top: 1px solid var(--line); }
 .v3-fp-terms .v3-rule { flex-wrap: wrap; row-gap: 2px; }
 .v3-fp-terms .v3-rule b { margin-left: auto; }
+/* длинные пары («При проживании более 10 дней») кладём в столбик: подпись
+   серой строкой, значение жирным ниже — без висящего переноса */
+.v3-fp-terms .v3-rule > span:first-child { flex: 1 1 100%; }
+.v3-fp-terms .v3-rule > b { flex: 1 1 100%; margin-left: 0; text-align: left; }
 
 /* 5. Ниже: «О квартире» и «Что рядом» в две колонки */
 .v3-fp-nearby { grid-template-columns: 1fr; gap: 16px; margin-top: 26px; }
