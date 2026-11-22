@@ -1,23 +1,33 @@
 import type { Metadata } from "next";
-import { Caveat, Onest, Prata } from "next/font/google";
+import localFont from "next/font/local";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
-const onest = Onest({
-  subsets: ["latin", "cyrillic"],
+/* Локальные шрифты: провайдер блокирует fonts.googleapis.com,
+   поэтому next/font/google не работает — файлы лежат в public/fonts */
+const onest = localFont({
+  src: [
+    { path: "../public/fonts/onest-cyrillic.woff2", weight: "100 900", style: "normal" },
+    { path: "../public/fonts/onest-latin-v.woff2", weight: "100 900", style: "normal" },
+  ],
   display: "swap",
   variable: "--font-onest",
 });
 
-const prata = Prata({
-  subsets: ["latin", "cyrillic"],
-  weight: "400",
+const prata = localFont({
+  src: [
+    { path: "../public/fonts/prata-400.woff2", weight: "400", style: "normal" },
+    { path: "../public/fonts/prata-latin.woff2", weight: "400", style: "normal" },
+  ],
   display: "swap",
   variable: "--font-prata",
 });
 
-const caveat = Caveat({
-  subsets: ["latin", "cyrillic"],
+const caveat = localFont({
+  src: [
+    { path: "../public/fonts/caveat-500.woff2", weight: "500", style: "normal" },
+    { path: "../public/fonts/caveat-latin.woff2", weight: "500", style: "normal" },
+  ],
   display: "swap",
   variable: "--font-script",
 });
