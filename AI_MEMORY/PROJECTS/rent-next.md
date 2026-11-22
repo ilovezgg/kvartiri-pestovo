@@ -112,3 +112,14 @@
 - ПОЧИНКА ФОТО на Pages: next/image с basePath отдаёт src от корня — фото 404. Решение: image-loader.ts (в main, через images.loader/loaderFile) + env NEXT_PUBLIC_BASE_PATH, при сборке под Pages выставляется "/kvartiri-pestovo", в Vercel-конфиге loader не подключён (нужен будет при переезде).
 - ШРИФТЫ: провайдер блокирует fonts.googleapis.com — next/font/google НЕ собирает. Перевёл на next/font/local: файлы в public/fonts (Onest — переменный wght 100-900, файлы onest-cyrillic.woff2 + onest-latin-v.woff2; prata-400 + prata-latin; caveat-500 + caveat-latin). Скачаны с fonts.gstatic.com (он доступен). main = 901f84f.
 - ЛОВУШКА: git checkout -- next.config.ts откатывает и robots/sitemap force-static — при сборке под Pages проверять оба.
+
+## 2026-11-22 (вечер) — переезд на свой домен kvartiri-pestovo.ru (GitHub Pages)
+- Домен куплен у reg.ru (~169 ₽/год). DNS у reg.ru (ns1/ns2.reg.ru — НЕ менять): 4×A @ → 185.199.108–111.153, CNAME www → ilovezgg.github.io. Старые A-записи на 95.163.244.138 удалены.
+- Делегация заняла ~75 мин (мониторинг scripts/wait_dns.sh, опрос dns.google каждые 5 мин).
+- После делегации: пересобрал out БЕЗ basePath (временный next.config: output:export, env NEXT_PUBLIC_BASE_PATH="", images.loader custom → image-loader.ts), .nojekyll + CNAME «kvartiri-pestovo.ru» в out, force-push gh-pages (коммит 41ec06f). Потом git checkout -- next.config.ts (вернул Vercel-конфиг для dev).
+- lib/site.ts → SITE_URL = https://kvartiri-pestovo.ru (коммит 8df5c11 в main). Sitemap/robots пересобраны под домен.
+- Проверено curl'ом: главная, все flats/*, /orgs, /privacy, CSS, фото (/images/...), все 6 woff2 — всё 200. www → 301 на апекс.
+- HTTPS-сертификат GitHub выпускает сам после проверки DNS (до ~1 ч) — мониторинг scripts/wait_https.sh. До сертификата сайт открыт по http:// (без замочка).
+- Старая ссылка ilovezgg.github.io/kvartiri-pestovo/ теперь редиректит на домен (из-за CNAME) — это нормально.
+- План Б на случай проблем: Яндекс Cloud Object Storage (0 ₽, не заблокирован провайдером).
+- Текущий прод: https://kvartiri-pestovo.ru (GitHub Pages, ветка gh-pages = собранная статика из out, деплой ручной). Vercel-проект kvartiri-pestovo.vercel.app пока существует, но провайдер владельца его блокирует.
