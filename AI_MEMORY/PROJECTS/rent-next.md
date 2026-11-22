@@ -103,3 +103,9 @@
 - Владелец сам правил файлы (flat-page.tsx + home.css из Загрузок), я перенёс на сайт и запушил (501bc88). В CSS вырезал случайно вставленный кусок лога dev-сервера.
 - Изменения: сетка v3-fp-top (галерея слева 1.5fr, карточка с ценой/условиями справа 1fr), шрифты Prata+Onest в .v3 вместо Inter/Georgia, --muted #62675e, галерея 4:3 со светлой подложкой, миниатюры лентой (scroll-snap), «Другие квартиры» в одну строку (v3-cards--3). Его flat-page.tsx: JSON-LD упрощён (numberOfRooms вместо containsPlace), кнопка «Позвонить хозяйке · телефон».
 - В его CSS коммент «не нравится — удалить блок 1» (шрифты) — оставил, он сам решит.
+
+## 2026-11-22 — тестовый деплой на GitHub Pages
+- Сайт задеплоен на https://ilovezgg.github.io/kvartiri-pestovo/ (ветка gh-pages, собирается из out/ командой: next.config → output:export + basePath:"/kvartiri-pestovo" + images.unoptimized, robots/sitemap → force-static; cd out && git init/push gh-pages). gh CLI нет, Pages включены через API (токен из git credential). ОБЯЗАТЕЛЕН .nojekyll (иначе Jekyll ест папку _next, CSS 404).
+- Проверил скриншотом: работает. Владельцу: проверить доступность с его провайдера + телефона.
+- main НЕ трогал (Vercel-конфиг cacheComponents/partialPrefetching — с export несовместимы, dev тоже). Для постоянного переезда: решить Vercel vs Pages, тогда переключить конфиг.
+- План владельца: домен .ru у reg.ru (~169 ₽ первый год, продление ~1200 ₽/год) + GitHub Pages (0 ₽). DNS: 4×A на GitHub + CNAME www.
