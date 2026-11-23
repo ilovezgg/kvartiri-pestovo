@@ -146,3 +146,8 @@
 
 ## 2026-11-23 — автоцель Метрики
 - Владелец создал в Метрике АВТОЦЕЛЬ «клик по номеру телефона» (ID 691616135) — она сама ловит клики по tel:-ссылкам. Ручной обработчик call_click из layout.tsx УДАЛЁН (был бы мусором, цели с таким id нет). Коммит aa9090c, gh-pages обновлён, проверено: метрика есть, call_click нет, webp на месте.
+
+## 2026-11-23 — Google + Bing верификация
+- Google Search Console: meta google-site-verification (content wG7K84a...) через metadata.verification.google (коммит c4c9bc9).
+- Bing Webmaster Tools: msvalidate.01 (D9C1F4...) — в Next.js 16 в типе Verification НЕТ поля bing (остались google/yahoo/yandex/me/other) — кладём через verification.other { "msvalidate.01": ... } (коммит 67e02a1). Ловушка для будущих правок.
+- Оба метатега проверены на проде. Владельцу: нажать «Подтвердить» в GSC и Bing, добавить sitemap в оба кабинета. Ждутся коды от Mail.ru и Rambler (добавить туда же через verification.other).
