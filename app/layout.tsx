@@ -48,7 +48,8 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "wG7K84aPoCsbFv8b_5BU2WuEyEBb5APmCSyCBpjcCe8",
-    bing: "D9C1F4C558505008D0C13EF0D2B0C170",
+    // Next.js 16 выкинул поле bing из типа — кладём через other
+    other: { "msvalidate.01": "D9C1F4C558505008D0C13EF0D2B0C170" },
   },
 };
 
