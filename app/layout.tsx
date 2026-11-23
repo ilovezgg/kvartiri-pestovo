@@ -64,11 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
           ym(114509384, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
 
-          // Цель «Звонок»: клик по любой ссылке tel:
-          document.addEventListener('click', function (e) {
-            var a = e.target && e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
-            if (a) { ym(114509384, 'reachGoal', 'call_click'); }
-          });`}
+          // Цель «клик по телефону» — автоцель Метрики (ID 691616135), вручную не шлём`}
         </Script>
         <noscript>
           <div><img src="https://mc.yandex.ru/watch/114509384" style={{ position: "absolute", left: -9999 }} alt="" /></div>
