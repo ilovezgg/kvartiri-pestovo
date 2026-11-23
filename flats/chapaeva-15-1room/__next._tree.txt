@@ -1,0 +1,12 @@
+:HL["/_next/static/chunks/14fvv1yhaqlcj.css","style"]
+:HL["/_next/static/media/caveat_500-s.p.0msuwn8wr2pul.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/caveat_latin-s.p.2oynjr4i06dor.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/onest_cyrillic-s.p.2nup_w1yytguo.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/onest_latin_v-s.p.0zctgtcp9xj58.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/prata_400-s.p.32v6fqby-s24-.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/prata_latin-s.p.0asu4tl5potc1.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/chunks/0568lpxsdjzld.css","style"]
+3:[["children",{"s":"__PAGE__","h":160}]]
+2:[["children",{"s":{"n":"slug","t":"d","k":"chapaeva-15-1room","s":[]},"h":96,"c":"$Q3"}]]
+1:[["children",{"s":"flats","h":96,"c":"$Q2"}]]
+0:{"b":"nwx-YaUNTeyPmsiMyhOub","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

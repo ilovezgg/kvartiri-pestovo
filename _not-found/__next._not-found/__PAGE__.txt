@@ -1,0 +1,40 @@
+1:"$Sreact.fragment"
+2:"/_next/static/chunks/1n8002xsathlf.js"
+3:I[39756,["$2"],"default"]
+4:I[37457,["$2"],"default"]
+5:I[79520,["$2"],""]
+d:I[97367,["$2"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:"ViewportBoundary"
+12:I[97367,["$2"],"$11"]
+13:"MetadataBoundary"
+14:I[97367,["$2"],"$13"]
+:HL["/_next/static/chunks/14fvv1yhaqlcj.css","style"]
+6:["$","div",null,{"children":["$","img",null,{"src":"https://mc.yandex.ru/watch/114509384","style":{"position":"absolute","left":-9999},"alt":""}]}]
+8:X
+b:X
+b:C
+c:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$0:t:t:d:r:props:children:1:props:children:props:children:0:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$0:t:t:d:r:props:children:1:props:children:props:children:0:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$0:t:t:d:r:props:children:1:props:children:props:children:0:props:notFound:0:1:props:children:props:children:2:props:style","children":["$","h2",null,{"style":"$0:t:t:d:r:props:children:1:props:children:props:children:0:props:notFound:0:1:props:children:props:children:2:props:children:props:style","children":"This page could not be found."}]}]]}]}]],null,["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}],"p":"$@10","v":null,"s":"$8"}}]]
+9:[["children",{"s":"/_not-found","h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","template":["$","$L4",null,{}]}]]}],"p":"$@a","v":"$b","s":"$8"},"c":"$Qc"}]]
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/14fvv1yhaqlcj.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/1n8002xsathlf.js","async":true}]],["$","html",null,{"lang":"ru","className":"Omh55G_variable Ma7Iva_variable KNZsHa_variable","children":["$","body",null,{"children":[["$","$L3",null,{"parallelRouterKey":"children","template":["$","$L4",null,{}],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]]}],["$","$L5",null,{"id":"yandex-metrika","strategy":"afterInteractive","children":"(function(m,e,t,r,i,k,a){\n            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};\n            m[i].l=1*new Date();\n            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}\n            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)\n          })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=114509384', 'ym');\n\n          ym(114509384, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:\"dataLayer\", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});\n\n          // Цель «клик по телефону» — автоцель Метрики (ID 691616135), вручную не шлём"}],["$","noscript",null,{"children":"$6"}]]}]}]]}],"p":"$@7","v":null,"s":"$8"},"c":"$Q9"},"h":{"r":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L12",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L14",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$e",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Квартиры посуточно в Пестово — напрямую от хозяйки, от 2 000 ₽/сутки"}],["$","meta","1",{"name":"description","content":"Одно-, двух- и трёхкомнатные квартиры посуточно в Пестово от хозяйки. От 2000 ₽/сутки, ТВ, Wi-Fi, техника и посуда. Заселение по паспорту или водительскому удостоверению. Звоните с 8:00 до 22:00."}],["$","meta","2",{"name":"google-site-verification","content":"wG7K84aPoCsbFv8b_5BU2WuEyEBb5APmCSyCBpjcCe8"}],["$","meta","3",{"name":"msvalidate.01","content":"D9C1F4C558505008D0C13EF0D2B0C170"}],["$","meta","4",{"property":"og:title","content":"Квартиры посуточно в Пестово — напрямую от хозяйки, от 2 000 ₽/сутки"}],["$","meta","5",{"property":"og:description","content":"Одно-, двух- и трёхкомнатные квартиры посуточно в Пестово от хозяйки. От 2000 ₽/сутки, ТВ, Wi-Fi, техника и посуда. Заселение по паспорту или водительскому удостоверению. Звоните с 8:00 до 22:00."}],["$","meta","6",{"property":"og:locale","content":"ru_RU"}],["$","meta","7",{"property":"og:image","content":"https://kvartiri-pestovo.ru/og.jpg"}],["$","meta","8",{"property":"og:image:width","content":"1200"}],["$","meta","9",{"property":"og:image:height","content":"630"}],["$","meta","10",{"property":"og:image:alt","content":"Квартиры посуточно в Пестово от хозяйки"}],"$L15","$L16","$L17","$L18","$L19","$L1a","$L1b","$L1c","$L1d","$L1e"]}]}],null]}],"$L1f"]}],"p":"$@20","v":null,"s":"$8"}},"a":"$@21","u":"$@22","b":"nwx-YaUNTeyPmsiMyhOub"}
+23:I[27201,["$2"],"IconMark"]
+f:null
+15:["$","meta","11",{"property":"og:type","content":"website"}]
+16:["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}]
+17:["$","meta","13",{"name":"twitter:title","content":"Квартиры посуточно в Пестово — напрямую от хозяйки, от 2 000 ₽/сутки"}]
+18:["$","meta","14",{"name":"twitter:description","content":"Одно-, двух- и трёхкомнатные квартиры посуточно в Пестово от хозяйки. От 2000 ₽/сутки, ТВ, Wi-Fi, техника и посуда. Заселение по паспорту или водительскому удостоверению. Звоните с 8:00 до 22:00."}]
+19:["$","meta","15",{"name":"twitter:image","content":"https://kvartiri-pestovo.ru/og.jpg"}]
+1a:["$","meta","16",{"name":"twitter:image:alt","content":"Квартиры посуточно в Пестово от хозяйки"}]
+1b:["$","meta","17",{"name":"twitter:image:width","content":"1200"}]
+1c:["$","meta","18",{"name":"twitter:image:height","content":"630"}]
+1d:["$","link","19",{"rel":"icon","href":"/favicon.ico?favicon.117ezoe8m31dk.ico","sizes":"48x48","type":"image/x-icon"}]
+1e:["$","$L23","20",{}]
+1f:["$","meta",null,{"name":"next-size-adjust","content":""}]
+8:300
+22:true
+8:C
+21:0
+a:"$undefined"
+7:"$undefined"
+20:"$undefined"
+10:"$undefined"
